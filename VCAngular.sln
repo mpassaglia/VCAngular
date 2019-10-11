@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCAngular", "VCAngular\VCAngular.csproj", "{A8EFB687-D41C-46A1-8E51-B9DA2E237EA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCAngular.Data", "VCAngular.Data\VCAngular.Data.csproj", "{5D0D7B72-8EA5-4EE7-87A4-528B93DDA7CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A8EFB687-D41C-46A1-8E51-B9DA2E237EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EFB687-D41C-46A1-8E51-B9DA2E237EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8EFB687-D41C-46A1-8E51-B9DA2E237EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D0D7B72-8EA5-4EE7-87A4-528B93DDA7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D0D7B72-8EA5-4EE7-87A4-528B93DDA7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D0D7B72-8EA5-4EE7-87A4-528B93DDA7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D0D7B72-8EA5-4EE7-87A4-528B93DDA7CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

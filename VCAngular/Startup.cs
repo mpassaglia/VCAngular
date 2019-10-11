@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using VCAngular.Data.Repositories;
 
 namespace VCAngular
 {
@@ -23,10 +25,22 @@ namespace VCAngular
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
+            services.AddSpaStaticFiles(config =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                config.RootPath = "ClientApp/dist";
             });
+
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .AddUserSecrets<Startup>()
+                .AddEnvironmentVariables()
+                .Build();
+
+            services.AddMvc();
+            services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
+
+            ConfigureRepositories(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +79,11 @@ namespace VCAngular
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        private void ConfigureRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IVennCuisineRepository, VennCuisineRepository>();
         }
     }
 }
