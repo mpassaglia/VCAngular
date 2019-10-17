@@ -37,7 +37,6 @@ namespace VCAngular
                 .AddEnvironmentVariables()
                 .Build();
 
-            services.AddMvc();
             services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
 
             ConfigureRepositories(services);
@@ -59,13 +58,6 @@ namespace VCAngular
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
 
             app.UseSpa(spa =>
             {
